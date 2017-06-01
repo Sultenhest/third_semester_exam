@@ -1,3 +1,5 @@
+package VIII_graphs;
+
 public class Main {
     private static Vertex kbh = new Vertex("København");
     private static Vertex hel = new Vertex("Helsingør");

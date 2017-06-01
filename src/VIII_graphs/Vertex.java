@@ -1,3 +1,5 @@
+package VIII_graphs;
+
 public class Vertex {
     private String name;
 

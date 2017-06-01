@@ -1,3 +1,5 @@
+package VIII_graphs;
+
 public class Edge {
     private Vertex source;
     private Vertex destination;
