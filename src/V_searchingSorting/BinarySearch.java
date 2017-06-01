@@ -4,22 +4,30 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class BinarySearch {
-    private static int[] data = new int[ 50 ];
+    private static int[] data = new int[ 100 ];
 
     public static void main( String[] args ) {
         populateIntArray();
 
         //Pick a random key
         int key = data[ new Random().nextInt( data.length ) ];
+        //int key = -1;
 
         //Sort array
         Arrays.sort(data);
 
         //Looking for
-        System.out.println( "Looking for: " + key );
+        System.out.print( "Looking for: " + key + ", " );
+        System.out.println( "in an array of length " + data.length );
+        System.out.print( "Array before search init: " );
+        print( 0, data.length );
 
         //Search
-        System.out.println( binarySearch( key ) );
+        if( binarySearch( key ) ) {
+            System.out.println( "Found " + key );
+        } else {
+            System.out.println( "Couldn't find " + key );
+        }
     }
 
     private static void populateIntArray() {
@@ -39,11 +47,8 @@ public class BinarySearch {
     }
 
     private static boolean binarySearch( int key ) {
-        System.out.print( "Array before search init: " );
-        print( 0, data.length );
-
         int low = 0;
-        int high = data.length - 1;
+        int high = data.length;
 
         while ( high >= low ) {
             int searchField = high - low;
@@ -53,9 +58,6 @@ public class BinarySearch {
 
             int middle = ( low + high ) / 2;
             if ( data[ middle ] == key ) {
-                if( searchField > 1 ) {
-                    System.out.println("Found " + key + " in the middle");
-                }
                 return true;
             }
             if ( data[ middle ] < key ) {

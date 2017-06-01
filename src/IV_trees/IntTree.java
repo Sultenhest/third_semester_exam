@@ -7,6 +7,10 @@ public class IntTree {
         root = null;
     }
 
+    public IntTree( IntTreeNode root ) {
+        this.root = root;
+    }
+
     public void add( int data ) {
         root = add( root, data );
     }
