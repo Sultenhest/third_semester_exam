@@ -74,6 +74,12 @@ public class GenericQueue<E> {
         return queue.toString();
     }
 
+    public static <E> void printArays( GenericQueue<E> l1 ) {
+        for(int i = 0; i < l1.size(); i++) {
+            System.out.println( l1.poll() );
+        }
+    }
+
     public static void main(String[] args) {
         //String queue
         GenericQueue<String> queue1 = new GenericQueue();
@@ -87,9 +93,7 @@ public class GenericQueue<E> {
         queue1.offer("f");
         queue1.offer("g");
 
-        queue1.print();
-        System.out.println( queue1.poll() );
-        queue1.print();
+        printArays( queue1 );
 
         System.out.println( "- - - - - - - - - - -" );
 
@@ -102,8 +106,11 @@ public class GenericQueue<E> {
         queue2.offer(2);
         queue2.offer(4);
 
-        queue2.print();
-        System.out.println(queue2.poll());
-        queue2.print();
+        printArays( queue2 );
+
+
+
+
+
     }
 }

@@ -1,11 +1,11 @@
 package IX_threads;
 
-public class UserThread implements Runnable {
+public class RunnableThread implements Runnable {
     private String name;
     private int amount;
     private Account account;
 
-    public UserThread(String name, int amount, Account account) {
+    public RunnableThread(String name, int amount, Account account) {
         this.name    = name;
         this.amount  = amount;
         this.account = account;

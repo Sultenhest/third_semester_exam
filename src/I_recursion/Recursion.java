@@ -1,6 +1,6 @@
 package I_recursion;
 
-public class Recursion {
+public class Recursion<T> {
     public static void main( String[] args ) {
         System.out.println( writeNumbers( 5 ) );
 

@@ -7,8 +7,20 @@ public class IntTree {
         root = null;
     }
 
+    public IntTree( int root ) {
+        if( this.root == null) {
+            this.root = new IntTreeNode(root);
+        } else {
+            add( root );
+        }
+    }
+
     public IntTree( IntTreeNode root ) {
-        this.root = root;
+        if( this.root == null) {
+            this.root = root;
+        } else {
+            add( root.getData() );
+        }
     }
 
     public void add( int data ) {
@@ -91,7 +103,6 @@ public class IntTree {
         return minv;
     }
 
-    //Prints
     public void printSideways() {
         printSideways( root , 0 );
     }
@@ -109,16 +120,39 @@ public class IntTree {
         }
     }
 
-    public void printInorder() {
-        printInorder( root );
-        System.out.println();
+    public String preorder() {
+        return "Preorder:" + preorder( root );
     }
 
-    private void printInorder( IntTreeNode root ) {
-        if ( root != null ) {
-            printInorder( root.getLeft() );
-            System.out.print( " " + root.getData() );
-            printInorder( root.getRight() );
+    private String preorder( IntTreeNode root ) {
+        if( root == null ) {
+            return "";
+        } else {
+            return " " + root.getData() + preorder( root.getLeft() ) + preorder( root.getRight() );
+        }
+    }
+
+    public String inorder() {
+        return "Inorder: " + inorder( root );
+    }
+
+    private String inorder( IntTreeNode root ) {
+        if( root == null ) {
+            return "";
+        } else {
+            return inorder( root.getLeft() ) + root.getData() + " " + inorder( root.getRight() );
+        }
+    }
+
+    public String postorder() {
+        return "Postorder:" + postorder( root );
+    }
+
+    private String postorder( IntTreeNode root ) {
+        if( root == null ) {
+            return "";
+        } else {
+            return postorder( root.getLeft() ) + postorder( root.getRight() ) + " " + root.getData();
         }
     }
 }
